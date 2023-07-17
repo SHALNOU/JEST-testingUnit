@@ -1,11 +1,19 @@
 image: Ubuntu1804
-stack: node 12 
+
+stack: node 12
+
 branches:
   only:
-  - master
-  cache: node_modules
-  install:
-  -npm install
-  bulid: off
-  test_script:
+    - master
+
+cache:
+  directories:
+    - node_modules
+
+install:
+  - npm install
+
+build: off
+
+test_script:
   - npm run lint && npm test
